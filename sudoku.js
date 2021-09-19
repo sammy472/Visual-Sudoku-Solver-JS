@@ -24,7 +24,6 @@ let sudokuBoard = [
     [6, 7, '', 1, '', 5, '', 4, ''],
     [1, '', 9, '', '', '', 2, '', '']
 ];
-
 function bordInit() {
     let empty = [
         [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined],
@@ -44,7 +43,6 @@ function bordInit() {
     }
     return empty;
 };
-
 function initialise() {
     let cell_1 = document.querySelector(".cell-1");
     let cell_2 = document.querySelector(".cell-2");
@@ -209,7 +207,6 @@ function initialise() {
     cell_80.innerHTML = String(sudokuBoard[8][7]);
     cell_81.innerHTML = String(sudokuBoard[8][8]);
 };
-
 //the code of the sudoku solver
 const isValidCell = (grid, elem, row, col) => {
     for (let j = 0; j < 9; j++) {
@@ -226,10 +223,7 @@ const isValidCell = (grid, elem, row, col) => {
         };
     };
     return true;
-
 };
-
-
 const sudokuSolver = (grid) => {
     let emptyArray = new Array()
 
@@ -258,7 +252,6 @@ const sudokuSolver = (grid) => {
 };
 let newBoard = bordInit();
 initialise();
-
 let solve = document.querySelector(".solve");
 let refresh = document.querySelector(".refresh");
 let answer = document.querySelector(".answer-box");
@@ -266,7 +259,6 @@ solve.addEventListener("click", () => {
     let state = sudokuSolver(sudokuBoard);
     initialise();
     answer.innerHTML += String(state).replace("t", "T");
-
 });
 refresh.addEventListener("click", () => {
     sudokuBoard = newBoard;
@@ -274,32 +266,3 @@ refresh.addEventListener("click", () => {
     newBoard = bordInit();
     answer.innerHTML = "Solvable? "
 });
-/*
-let bigBoard = [
-    [
-        [5, 3, "", "", 7, "", "", "", ""],
-        [6, "", "", 1, 9, 5, "", "", ""],
-        ["", 9, 8, "", "", "", "", 6, ""],
-
-        [8, "", "", "", 6, "", "", "", 3],
-        [4, "", "", 8, "", 3, "", "", 1],
-        [7, "", "", "", 2, "", "", "", 6],
-
-        ["", 6, "", "", "", "", 2, 8, ""],
-        ["", "", "", 4, 1, 9, "", "", 5],
-        ["", "", "", "", 8, "", "", 7, 9]
-    ],
-    [
-        [3, 9, "", "", 5, '', '', '', ''],
-        ['', '', '', 2, '', '', '', '', 5],
-        ['', '', '', 7, 1, 9, '', 8, ''],
-
-        ['', 5, '', '', 6, 8, '', '', ''],
-        [2, '', 6, '', '', 3, '', '', ''],
-        ['', '', '', '', '', '', '', '', 4],
-
-        [5, '', '', '', '', '', '', '', ''],
-        [6, 7, '', 1, '', 5, '', 4, ''],
-        [1, '', 9, '', '', '', 2, '', '']
-    ]
-];*/
